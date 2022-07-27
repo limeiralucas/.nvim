@@ -13,7 +13,13 @@ function M.setup()
             adaptive_size = true,
         }
     }
-    nnoremap("<leader>o", function() require'nvim-tree'.toggle{} end)
+    nnoremap("<leader>o", function() 
+        if require'nvim-tree.view'.is_visible() then
+            require'nvim-tree'.focus()
+        else
+            require'nvim-tree'.toggle(false, true)
+        end
+    end)
 
     vim.api.nvim_create_autocmd("BufEnter", {
         nested = true,
