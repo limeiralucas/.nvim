@@ -10,15 +10,15 @@ function M.setup()
             enable = true
         },
         view = {
-            adaptive_size = true,
+            adaptive_size = true
         }
     }
+    nnoremap("<leader>t", function()
+        print(vim.fn.expand('%'))
+    end)
+
     nnoremap("<leader>o", function() 
-        if require'nvim-tree.view'.is_visible() then
-            require'nvim-tree'.focus()
-        else
-            require'nvim-tree'.toggle(false, true)
-        end
+        require'nvim-tree'.toggle()
     end)
 
     vim.api.nvim_create_autocmd("BufEnter", {
