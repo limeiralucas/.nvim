@@ -14,7 +14,3 @@ vim.cmd([[ syntax enable ]])
 vim.cmd([[ set bg=dark ]])
 vim.cmd([[ set termguicolors ]])
 
-require('onedark').setup {
-    style = 'deep'
-}
-require('onedark').load()

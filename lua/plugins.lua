@@ -2,9 +2,9 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
     use 'wbthomason/packer.nvim'
-    use 'navarasu/onedark.nvim'
     use 'Yggdroot/indentLine'
     use 'b0o/mapx.nvim'
+    use 'navarasu/onedark.nvim'
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
