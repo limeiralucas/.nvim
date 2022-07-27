@@ -8,7 +8,8 @@ vim.cmd([[ set t_Co=256 ]])
 vim.cmd([[ set expandtab ]])
 vim.cmd([[ set shiftwidth=4 ]])
 vim.cmd([[ set softtabstop=4 ]])
-vim.cmd([[ syntax on ]])
+vim.cmd([[ set cursorline ]])
+vim.cmd([[ syntax enable ]])
 
 vim.cmd([[ set bg=dark ]])
 vim.cmd([[ set termguicolors ]])
@@ -17,4 +18,3 @@ require('onedark').setup {
     style = 'deep'
 }
 require('onedark').load()
-
