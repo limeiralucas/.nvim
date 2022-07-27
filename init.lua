@@ -1,11 +1,11 @@
 -- General nvim settings
-require('configs.settings')
+require("configs.settings")
 
 -- Mappings
-require('configs.mappings')
+require("configs.mappings")
 
 -- Plugins/Packer
-require('plugins')
+require("plugins")
 
 -- Theme settings (after colorscheme is required in plugins)
-require('configs.theme')
+require("configs.theme")

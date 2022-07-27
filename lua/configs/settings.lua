@@ -13,4 +13,3 @@ vim.cmd([[ syntax enable ]])
 
 vim.cmd([[ set bg=dark ]])
 vim.cmd([[ set termguicolors ]])
-
