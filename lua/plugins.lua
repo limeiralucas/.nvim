@@ -3,7 +3,6 @@ vim.cmd([[packadd packer.nvim]])
 return require("packer").startup(function()
 	use("wbthomason/packer.nvim")
 	use("Yggdroot/indentLine")
-	use("b0o/mapx.nvim")
 	use("navarasu/onedark.nvim")
 	use({
 		"nvim-lualine/lualine.nvim",

@@ -1,4 +1,4 @@
-require("mapx").setup({ global = "skip" })
+local r = require("utils.keymapper")
 
 local M = {}
 
@@ -17,9 +17,7 @@ function M.setup()
 			},
 		},
 	})
-	nnoremap("<leader>p", function()
-		require("telescope.builtin").find_files({})
-	end)
+	r.nnoremap("<leader>p", require("telescope.builtin").find_files)
 end
 
 return M

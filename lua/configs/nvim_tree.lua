@@ -1,4 +1,4 @@
-require("mapx").setup({ global = "skip" })
+local r = require("utils.keymapper")
 
 local M = {}
 
@@ -13,11 +13,8 @@ function M.setup()
 			adaptive_size = true,
 		},
 	})
-	nnoremap("<leader>t", function()
-		print(vim.fn.expand("%"))
-	end)
 
-	nnoremap("<leader>o", function()
+	r.nnoremap("<leader>o", function()
 		require("nvim-tree").toggle()
 	end)
 

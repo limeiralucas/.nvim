@@ -1,5 +1,5 @@
-require("mapx").setup({ global = true })
+local r = require('utils.keymapper')
 
 vim.g.mapleader = " "
 
-imap("jk", "<Esc>")
+r.imap("jk", "<Esc>")
