@@ -1,5 +1,7 @@
+local g = vim.g
 local r = require('utils.keymapper')
 
-vim.g.mapleader = " "
+g.mapleader = " "
+g.maplocalleader = " "
 
 r.imap("jk", "<Esc>")

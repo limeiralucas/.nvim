@@ -5,7 +5,7 @@ require("configs.settings")
 require("configs.mappings")
 
 -- Plugins/Packer
-require("plugins")
+require("plugins").setup()
 
 -- Theme settings (after colorscheme is required in plugins)
-require("configs.theme")
+-- require("configs.theme")

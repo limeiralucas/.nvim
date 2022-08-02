@@ -1,13 +1,56 @@
-vim.cmd([[packadd packer.nvim]])
+local M = {}
 
-return require("packer").startup(function()
+function M.setup()
+    local packer_bootstrap = false
+
+    -- packer.nvim config
+    local conf = {
+        display = {
+            open_fn = function()
+                return require("packer.util").float { border = "rounded" }
+            end
+        }
+    }
+
+    local function packer_init()
+        local fn = vim.fn
+        local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+
+        if fn.empty(fn.glob(install_path)) > 0 then
+            packer_bootstrap = fn.system {
+                "git",
+                "clone",
+                "--depth",
+                "1",
+                "https://github.com/wbthomason/packer.nvim",
+                install_path
+            }
+            vim.cmd [[packadd packer.nvim]]
+        end
+        vim.cmd "autocmd BufWritePost plugins.lua source <afile> | PackerCompile"
+    end
+    
+    local function plugins(use)
 	use("wbthomason/packer.nvim")
+
+        -- Colorscheme
+	use({
+            "navarasu/onedark.nvim",
+            config = function()
+                vim.cmd "colorscheme onedark"
+            end
+        })
+
+        -- Startup screen
+        use({
+            "goolord/alpha-nvim",
+            config = function()
+                require("configs.alpha").setup()
+            end
+        })
 
         -- IndentLine
 	use("Yggdroot/indentLine")
-
-        -- Onedark colorscheme
-	use("navarasu/onedark.nvim")
 
         -- lualine
 	use({
@@ -45,4 +88,19 @@ return require("packer").startup(function()
 			require("configs.telescope").setup()
 		end,
 	})
-end)
+
+        if packer_bootstrap then
+            print "Restart Neovim required after installation!"
+            require("packer").sync()
+        end
+    end
+
+    packer_init()
+
+    local packer = require("packer")
+    packer.init(conf)
+    packer.startup(plugins)
+end
+
+return M
+
