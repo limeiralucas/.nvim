@@ -13,8 +13,18 @@ local map = function(mode, lhs, rhs, opts, recursive)
 end
 
 local keymapper = {
+  map = map,
   nnoremap = function(lhs, rhs, ops)
     map("n", lhs, rhs, ops, true)
+  end,
+  inoremap = function(lhs, rhs, ops)
+    map("i", lhs, rhs, ops, true)
+  end,
+  vnoremap = function(lhs, rhs, ops)
+    map("v", lhs, rhs, ops, true)
+  end,
+  xnoremap = function(lhs, rhs, ops)
+    map("x", lhs, rhs, ops, true)
   end,
   nmap = function(lhs, rhs, ops)
     map("n", lhs, rhs, ops)
@@ -22,6 +32,12 @@ local keymapper = {
   imap = function(lhs, rhs, ops)
     map("i", lhs, rhs, ops)
   end,
+  vmap = function(lhs, rhs, ops)
+    map("v", lhs, rhs, ops)
+  end,
+  xmap = function(lhs, rhs, ops)
+    map("x", lhs, rhs, ops)
+  end
 }
 
 return keymapper
