@@ -1,6 +1,5 @@
 local opt = vim.opt
 
-opt.encoding = "utf8"
 opt.termguicolors = true
 opt.hlsearch = true
 opt.number = true
@@ -11,11 +10,13 @@ opt.incsearch = true
 opt.title = true
 opt.undofile = true
 opt.expandtab = true 
+opt.cursorline = true 
+opt.updatetime = 250
 opt.shiftwidth = 4 
 opt.softtabstop = 4 
-opt.cursorline = true 
 opt.mouse = "a"
-opt.updatetime = 250
+opt.signcolumn = "yes"
+opt.encoding = "utf8"
 opt.clipboard = "unnamedplus"
 opt.syntax = "enable"
 opt.bg = "dark"
