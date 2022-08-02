@@ -1,9 +1,3 @@
--- General nvim settings
-require "configs.settings"
-
--- Mappings
-require "configs.mappings"
-
 -- Plugins/Packer
 require("plugins").setup()
 
