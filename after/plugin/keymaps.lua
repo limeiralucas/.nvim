@@ -1,6 +1,7 @@
 local g = vim.g
 local km = require "utils.keymapper"
 
+km.map("", "<Space>", "<Nop>", { noremap = true, silent = true })
 g.mapleader = " "
 g.maplocalleader = " "
 

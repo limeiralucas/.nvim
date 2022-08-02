@@ -12,6 +12,7 @@ opt.undofile = true
 opt.expandtab = true
 opt.cursorline = true
 opt.updatetime = 250
+opt.timeoutlen = 300
 opt.shiftwidth = 4
 opt.softtabstop = 4
 opt.mouse = "a"

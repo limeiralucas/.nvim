@@ -45,7 +45,7 @@ function M.setup()
     use {
       "goolord/alpha-nvim",
       config = function()
-        require("configs.alpha").setup()
+        require("config.alpha").setup()
       end,
     }
 
@@ -57,35 +57,46 @@ function M.setup()
       "nvim-lualine/lualine.nvim",
       requires = { "kyazdani42/nvim-web-devicons", opt = true },
       config = function()
-        require("configs.lualine").setup()
+        require("config.lualine").setup()
       end,
     }
 
-    -- nvim-tree
+    --[[ nvim-tree
     use {
       "kyazdani42/nvim-tree.lua",
       requires = {
         "kyazdani42/nvim-web-devicons",
       },
       config = function()
-        require("configs.nvim_tree").setup()
+        require("config.nvim_tree").setup()
       end,
     }
+    ]]
 
-    -- Tmux navigation
+    --[[ Tmux navigation
     use {
       "alexghergh/nvim-tmux-navigation",
       config = function()
-        require("configs.tmux_nav").setup()
+        require("config.tmux_nav").setup()
       end,
     }
+    ]]
 
-    -- Telescope
+    --[[ Telescope
     use {
       "nvim-telescope/telescope.nvim",
       requires = { { "nvim-lua/plenary.nvim" } },
       config = function()
-        require("configs.telescope").setup()
+        require("config.telescope").setup()
+      end,
+    }
+    ]]
+
+    -- WhichKey
+    use {
+      "folke/which-key.nvim",
+      config = function()
+        require("config.whichkey").setup()
       end,
     }
 
