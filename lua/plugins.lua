@@ -5,6 +5,10 @@ function M.setup()
 
   -- packer.nvim config
   local conf = {
+    profile = {
+      enable = true,
+      threshold = 0
+    },
     display = {
       open_fn = function()
         return require("packer.util").float { border = "rounded" }
@@ -33,6 +37,9 @@ function M.setup()
   local function plugins(use)
     use "wbthomason/packer.nvim"
 
+    -- Plenary
+    use { "nvim-lua/plenary.nvim", module = "plenary" }
+
     -- Colorscheme
     use {
       "navarasu/onedark.nvim",
@@ -49,8 +56,40 @@ function M.setup()
       end,
     }
 
-    -- IndentLine
-    use "Yggdroot/indentLine"
+    -- IndentLine (TODO: config)
+    use {
+      "lukas-reineke/indent-blankline.nvim",
+      event = "BufReadPre"
+    }
+
+    -- Web DevIcons
+    use {
+      "kyazdani42/nvim-web-devicons",
+      module = "nvim-web-devicons",
+      config = function()
+        require('nvim-web-devicons').setup { default = true }
+      end
+    }
+
+    -- Comment
+    use {
+      'numToStr/Comment.nvim',
+      opt = true,
+      keys = { 'gc', 'gcc', 'gbc' },
+      config = function()
+        require('Comment').setup {}
+      end
+    }
+
+    -- Hop
+    use {
+      'phaazon/hop.nvim',
+      branch = 'v2',
+      cmd = { "HopWord", "HopChar1" },
+      config = function()
+        require('hop').setup {}
+      end
+    } 
 
     -- lualine
     use {
@@ -61,43 +100,23 @@ function M.setup()
       end,
     }
 
-    --[[ nvim-tree
-    use {
-      "kyazdani42/nvim-tree.lua",
-      requires = {
-        "kyazdani42/nvim-web-devicons",
-      },
-      config = function()
-        require("config.nvim_tree").setup()
-      end,
-    }
-    ]]
-
-    --[[ Tmux navigation
-    use {
-      "alexghergh/nvim-tmux-navigation",
-      config = function()
-        require("config.tmux_nav").setup()
-      end,
-    }
-    ]]
-
-    --[[ Telescope
-    use {
-      "nvim-telescope/telescope.nvim",
-      requires = { { "nvim-lua/plenary.nvim" } },
-      config = function()
-        require("config.telescope").setup()
-      end,
-    }
-    ]]
-
     -- WhichKey
     use {
       "folke/which-key.nvim",
+      event = "VimEnter",
       config = function()
         require("config.whichkey").setup()
       end,
+    }
+
+    -- Markdown preview
+    use {
+      "iamcco/markdown-preview.nvim",
+      run = function()
+        vim.fn["mkdp#util#install"]()
+      end,
+      ft = "markdown",
+      cmd = { "MarkdownPreview" },
     }
 
     if packer_bootstrap then
