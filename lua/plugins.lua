@@ -59,7 +59,10 @@ function M.setup()
     -- IndentLine (TODO: config)
     use {
       "lukas-reineke/indent-blankline.nvim",
-      event = "BufReadPre"
+      event = "BufReadPre",
+      config = function()
+        require('config.indent_blankline').setup()
+      end
     }
 
     -- Web DevIcons
