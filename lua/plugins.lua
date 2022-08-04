@@ -56,7 +56,7 @@ function M.setup()
       end,
     }
 
-    -- IndentLine (TODO: config)
+    -- IndentLine
     use {
       "lukas-reineke/indent-blankline.nvim",
       event = "BufReadPre",
@@ -97,7 +97,8 @@ function M.setup()
     -- lualine
     use {
       "nvim-lualine/lualine.nvim",
-      requires = { "kyazdani42/nvim-web-devicons", opt = true },
+      requires = { "kyazdani42/nvim-web-devicons" },
+      event = 'VimEnter',
       config = function()
         require("config.lualine").setup()
       end,
