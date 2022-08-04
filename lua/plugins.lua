@@ -123,6 +123,19 @@ function M.setup()
       cmd = { "MarkdownPreview" },
     }
 
+    -- FZF
+    use { "junegunn/fzf", run = "./install --all", event = "VimEnter" }
+
+    -- FZF Lua
+    use {
+      "ibhagwan/fzf-lua",
+      event = "BufEnter",
+      requires = { "kyazdani42/nvim-web-devicons" },
+      config = function()
+        require('config.fzf_lua').setup()
+      end
+    }
+
     if packer_bootstrap then
       print "Restart Neovim required after installation!"
       require("packer").sync()
