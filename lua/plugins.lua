@@ -56,6 +56,16 @@ function M.setup()
       end,
     }
 
+    -- Treesitter
+    use {
+      "nvim-treesitter/nvim-treesitter",
+      event = "BufRead",
+      run = ":TSUpdate",
+      config = function()
+        require("config.treesitter").setup()
+      end,
+    }
+
     -- IndentLine
     use {
       "lukas-reineke/indent-blankline.nvim",
