@@ -7,11 +7,11 @@ function M.setup()
     options = {
       globalstatus = true,
       icons_enabled = true,
-      theme = 'auto',
+      theme = "auto",
       component_separators = "|",
       section_separators = { left = "", right = " " },
       disabled_filetypes = {},
-      always_divide_middle = true
+      always_divide_middle = true,
     },
     sections = {
       lualine_a = {

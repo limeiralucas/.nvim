@@ -37,7 +37,7 @@ local keymapper = {
   end,
   xmap = function(lhs, rhs, ops)
     map("x", lhs, rhs, ops)
-  end
+  end,
 }
 
 return keymapper

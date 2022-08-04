@@ -7,7 +7,7 @@ function M.setup()
   local conf = {
     profile = {
       enable = true,
-      threshold = 0
+      threshold = 0,
     },
     display = {
       open_fn = function()
@@ -61,8 +61,8 @@ function M.setup()
       "lukas-reineke/indent-blankline.nvim",
       event = "BufReadPre",
       config = function()
-        require('config.indent_blankline').setup()
-      end
+        require("config.indent_blankline").setup()
+      end,
     }
 
     -- Web DevIcons
@@ -70,35 +70,35 @@ function M.setup()
       "kyazdani42/nvim-web-devicons",
       module = "nvim-web-devicons",
       config = function()
-        require('nvim-web-devicons').setup { default = true }
-      end
+        require("nvim-web-devicons").setup { default = true }
+      end,
     }
 
     -- Comment
     use {
-      'numToStr/Comment.nvim',
+      "numToStr/Comment.nvim",
       opt = true,
-      keys = { 'gc', 'gcc', 'gbc' },
+      keys = { "gc", "gcc", "gbc" },
       config = function()
-        require('Comment').setup {}
-      end
+        require("Comment").setup {}
+      end,
     }
 
     -- Hop
     use {
-      'phaazon/hop.nvim',
-      branch = 'v2',
+      "phaazon/hop.nvim",
+      branch = "v2",
       cmd = { "HopWord", "HopChar1" },
       config = function()
-        require('hop').setup {}
-      end
-    } 
+        require("hop").setup {}
+      end,
+    }
 
     -- lualine
     use {
       "nvim-lualine/lualine.nvim",
       requires = { "kyazdani42/nvim-web-devicons" },
-      event = 'VimEnter',
+      event = "VimEnter",
       config = function()
         require("config.lualine").setup()
       end,
@@ -132,8 +132,8 @@ function M.setup()
       event = "BufEnter",
       requires = { "kyazdani42/nvim-web-devicons" },
       config = function()
-        require('config.fzf_lua').setup()
-      end
+        require("config.fzf_lua").setup()
+      end,
     }
 
     if packer_bootstrap then

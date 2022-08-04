@@ -21,4 +21,3 @@ opt.encoding = "utf8"
 opt.clipboard = "unnamedplus"
 opt.syntax = "enable"
 opt.bg = "dark"
-
