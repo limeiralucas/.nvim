@@ -8,6 +8,7 @@ function M.setup()
       enable = true,
     },
     view = {
+      side = "right",
       number = true,
       relativenumber = true
     },
