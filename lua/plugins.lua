@@ -156,6 +156,16 @@ function M.setup()
       end
     }
 
+    -- Buffer line
+    use {
+      "akinsho/nvim-bufferline.lua",
+      event = "BufReadPre",
+      wants = "nvim-web-devicons",
+      config = function()
+        require("config.bufferline").setup()
+      end
+    }
+
     if packer_bootstrap then
       print "Restart Neovim required after installation!"
       require("packer").sync()

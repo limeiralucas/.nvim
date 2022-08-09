@@ -23,11 +23,14 @@ function M.setup()
     ["w"] = { "<cmd>update!<CR>", "Save" },
     ["q"] = { "<cmd>q!<CR>", "Quit" },
     ["o"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
+    ["<Tab>"] = { "<cmd>FzfLua buffers<cr>", "Buffers" },
 
     b = {
       name = "Buffer",
-      c = { "<Cmd>bd!<CR>", "Close current buffer" },
-      D = { "<Cmd>%bd|e#|bd#<CR>", "Delete all buffers" },
+      c = { "<cmd>bd!<CR>", "Close current buffer" },
+      D = { "<cmd>%bd|e#|bd#<CR>", "Delete all buffers" },
+      l = { "<cmd>BufferLineMoveNext<CR>", "Move buffer right" },
+      h = { "<cmd>BufferLineMovePrev<CR>", "Move buffer left" },
     },
 
     f = {
