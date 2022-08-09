@@ -22,11 +22,12 @@ function M.setup()
   local mappings = {
     ["w"] = { "<cmd>update!<CR>", "Save" },
     ["q"] = { "<cmd>q!<CR>", "Quit" },
+    ["o"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
 
     b = {
       name = "Buffer",
-      c = { "<Cmd>bd!<Cr>", "Close current buffer" },
-      D = { "<Cmd>%bd|e#|bd#<Cr>", "Delete all buffers" },
+      c = { "<Cmd>bd!<CR>", "Close current buffer" },
+      D = { "<Cmd>%bd|e#|bd#<CR>", "Delete all buffers" },
     },
 
     f = {
@@ -34,6 +35,7 @@ function M.setup()
       f = { "<cmd>lua require('utils.finder').find_files()<cr>", "Files" },
       b = { "<cmd>FzfLua buffers<cr>", "Buffers" },
       c = { "<cmd>FzfLua commands<cr>", "Commands" },
+      e = { "<cmd>NvimTreeToggle<cr>", "Explorer" }
     },
 
     z = {
