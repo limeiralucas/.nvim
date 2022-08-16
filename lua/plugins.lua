@@ -59,11 +59,15 @@ function M.setup()
     -- Treesitter
     use {
       "nvim-treesitter/nvim-treesitter",
-      event = "BufRead",
+      opt = true,
+      event = "BufReadPre",
       run = ":TSUpdate",
       config = function()
         require("config.treesitter").setup()
       end,
+      requires = { 
+        { "nvim-treesitter/nvim-treesitter-textobjects", event = "BufReadPre" }
+      }
     }
 
     -- IndentLine
