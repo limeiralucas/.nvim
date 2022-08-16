@@ -79,6 +79,17 @@ function M.setup()
       end,
     }
 
+    -- Nvim gps
+    use {
+      "SmiteshP/nvim-gps",
+      requires = "nvim-treesitter/nvim-treesitter",
+      module = "nvim-gps",
+      wants = "nvim-treesitter",
+      config = function()
+        require("nvim-gps").setup()
+      end,
+    }
+
     -- Web DevIcons
     use {
       "kyazdani42/nvim-web-devicons",
