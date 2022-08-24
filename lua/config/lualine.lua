@@ -24,7 +24,7 @@ function M.setup()
           gps.get_location,
           cond = gps.is_available,
           color = { fg = "#F3CA28" },
-        }
+        },
       },
       lualine_x = { "encoding", "fileformat", "filetype" },
       lualine_y = { "progress" },

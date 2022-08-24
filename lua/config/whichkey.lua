@@ -38,7 +38,7 @@ function M.setup()
       f = { "<cmd>lua require('utils.finder').find_files()<cr>", "Files" },
       b = { "<cmd>FzfLua buffers<cr>", "Buffers" },
       c = { "<cmd>FzfLua commands<cr>", "Commands" },
-      e = { "<cmd>NvimTreeToggle<cr>", "Explorer" }
+      e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
     },
 
     z = {

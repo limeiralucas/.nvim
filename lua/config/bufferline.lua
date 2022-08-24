@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup()
-  local km = require("utils.keymapper")
+  local km = require "utils.keymapper"
 
   require("bufferline").setup {
     options = {
@@ -10,8 +10,8 @@ function M.setup()
       separator_style = "slant" or "padded_slant",
       show_tab_indicators = true,
       show_buffer_close_icons = true,
-      show_close_icon = true
-    }
+      show_close_icon = true,
+    },
   }
 
   km.nnoremap("<Tab>", "<cmd>BufferLineCycleNext<CR>")

@@ -23,7 +23,7 @@ function M.setup()
     indent = {
       enable = true,
     },
-    
+
     -- nvim-treesitter-textobjects
     textobjects = {
       select = {
@@ -33,7 +33,7 @@ function M.setup()
           ["af"] = "@function.outer",
           ["if"] = "@function.inner",
           ["ac"] = "@class.outer",
-          ["ic"] = "@class.inner"
+          ["ic"] = "@class.inner",
         },
       },
 
@@ -43,8 +43,8 @@ function M.setup()
           ["<leader>rx"] = "@parameter.inner",
         },
         swap_previous = {
-          ["<leader>rX"] = "@parameter.inner"
-        }
+          ["<leader>rX"] = "@parameter.inner",
+        },
       },
 
       move = {
@@ -56,15 +56,15 @@ function M.setup()
         },
         goto_next_end = {
           ["]M"] = "@function.outer",
-          ["]["] = "@class.outer"
+          ["]["] = "@class.outer",
         },
         goto_previous_start = {
           ["[m"] = "@function.outer",
-          ["[["] = "@class.outer"
+          ["[["] = "@class.outer",
         },
         goto_previous_end = {
           ["[M"] = "@function.outer",
-          ["[]"] = "@class.outer"
+          ["[]"] = "@class.outer",
         },
       },
 
@@ -74,9 +74,9 @@ function M.setup()
         peek_definition_code = {
           ["<leader>df"] = "@function.outer",
           ["<leader>dF"] = "@class.outer",
-        }
-      }
-    }
+        },
+      },
+    },
   }
 end
 

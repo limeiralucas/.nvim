@@ -65,9 +65,9 @@ function M.setup()
       config = function()
         require("config.treesitter").setup()
       end,
-      requires = { 
-        { "nvim-treesitter/nvim-treesitter-textobjects", event = "BufReadPre" }
-      }
+      requires = {
+        { "nvim-treesitter/nvim-treesitter-textobjects", event = "BufReadPre" },
+      },
     }
 
     -- IndentLine
@@ -168,7 +168,7 @@ function M.setup()
       cmd = { "NvimTreeToggle", "NvimTreeClose" },
       config = function()
         require("config.nvim_tree").setup()
-      end
+      end,
     }
 
     -- Buffer line
@@ -178,7 +178,24 @@ function M.setup()
       wants = "nvim-web-devicons",
       config = function()
         require("config.bufferline").setup()
-      end
+      end,
+    }
+
+    -- COQ nvim
+    use {
+      "ms-jpq/coq_nvim",
+      branch = "coq",
+      event = "InsertEnter",
+      opt = true,
+      run = ":COQdeps",
+      config = function()
+        require("config.coq").setup()
+      end,
+      requires = {
+        { "ms-jpq/coq.artifacts", branch = "artifacts" },
+        { "ms-jpq/coq.thirdparty", branch = "3p", module = "coq_3p" },
+      },
+      disable = false,
     }
 
     if packer_bootstrap then

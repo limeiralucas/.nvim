@@ -30,9 +30,9 @@ function RelativeNumber(enable)
 
   if allowed == "0" then
     if enable then
-      vim.cmd("set rnu")
+      vim.cmd "set rnu"
     else
-      vim.cmd("set rnu!")
+      vim.cmd "set rnu!"
     end
   end
 end
