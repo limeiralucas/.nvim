@@ -55,7 +55,6 @@ lazy.setup({
   {'lukas-reineke/indent-blankline.nvim'},
   {'nvim-treesitter/nvim-treesitter'},
   {'numToStr/Comment.nvim'},
-  {'kyazdani42/nvim-tree.lua'},
 })
 
 -- Colorscheme
@@ -100,25 +99,26 @@ require('nvim-treesitter.configs').setup({
 -- Comment
 require('Comment').setup({})
 
--- Nvim-tree
-require('nvim-tree').setup({
-  hijack_cursor = false,
-  view = {
-    side = 'right',
-  },
-  on_attach = function(bufnr)
-    local bufmap = function(lhs, rhs, desc)
-      vim.keymap.set('n', lhs, rhs, {buffer = bufnr, desc = desc})
-    end
-
-    local api = require('nvim-tree.api')
-
-    bufmap('gh', api.tree.toggle_hidden_filter, 'Toggle hidden files')
-  end
-})
-
 vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<cr>')
 
 -- User commands
 vim.api.nvim_create_user_command('ReloadConfig', 'source $MYVIMRC', {})
+
+-- Auto commands
+-- Smart Number
+local number_toggle_group = vim.api.nvim_create_augroup('numbertoggle', {clear = true})
+vim.api.nvim_create_autocmd(
+  {'BufEnter', 'FocusGained', 'InsertLeave', 'WinEnter'},
+  {
+    group = number_toggle_group,
+    command = 'set rnu'
+  }
+)
+vim.api.nvim_create_autocmd(
+  {'BufLeave', 'FocusLost', 'InsertEnter', 'WinLeave'},
+  {
+    group = number_toggle_group,
+    command = 'set nornu'
+  }
+)
 
