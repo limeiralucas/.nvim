@@ -57,6 +57,7 @@ lazy.setup({
   {'numToStr/Comment.nvim'},
   {'lewis6991/gitsigns.nvim'},
   {'chentoast/marks.nvim'},
+  {'akinsho/bufferline.nvim'},
 })
 
 -- Colorscheme
@@ -106,6 +107,25 @@ require('gitsigns').setup({})
 
 -- Marks
 require('marks').setup({})
+
+-- Bufferline
+require('bufferline').setup({
+  options = {
+    mode = 'buffers',
+    offsets = {
+      {filetype = 'NvimTree'}
+    },
+  },
+  highlights = {
+    buffer_selected = {
+      italic = false
+    },
+    indicator_selected = {
+      fg = {attribute = 'fg', highlight = 'Function'},
+      italic = false
+    }
+  }
+})
 
 -- User commands
 vim.api.nvim_create_user_command('ReloadConfig', 'source $MYVIMRC', {})
