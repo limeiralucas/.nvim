@@ -55,6 +55,7 @@ lazy.setup({
   {'lukas-reineke/indent-blankline.nvim'},
   {'nvim-treesitter/nvim-treesitter'},
   {'numToStr/Comment.nvim'},
+  {'lewis6991/gitsigns.nvim'},
 })
 
 -- Colorscheme
@@ -99,7 +100,8 @@ require('nvim-treesitter.configs').setup({
 -- Comment
 require('Comment').setup({})
 
-vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<cr>')
+-- Git Signs
+require('gitsigns').setup({})
 
 -- User commands
 vim.api.nvim_create_user_command('ReloadConfig', 'source $MYVIMRC', {})
