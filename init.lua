@@ -52,6 +52,10 @@ lazy.setup({
   {'joshdick/onedark.vim'},
   {'nvim-lualine/lualine.nvim'},
   {'kyazdani42/nvim-web-devicons'},
+  {'lukas-reineke/indent-blankline.nvim'},
+  {'nvim-treesitter/nvim-treesitter'},
+  {'numToStr/Comment.nvim'},
+  {'kyazdani42/nvim-tree.lua'},
 })
 
 -- Colorscheme
@@ -70,6 +74,50 @@ require('lualine').setup({
     }
   }
 })
+
+-- Indent blankline
+require('indent_blankline').setup({
+  show_trailing_blankline_indent = true,
+  show_first_indent_level = false,
+  use_treesitter = true,
+  show_current_context = false
+})
+
+-- Treesitter
+require('nvim-treesitter.configs').setup({
+  highlight = {
+    enable = true,
+  },
+  ensure_installed = {
+    'python',
+    'javascript',
+    'typescript',
+    'json',
+    'lua',
+  },
+})
+
+-- Comment
+require('Comment').setup({})
+
+-- Nvim-tree
+require('nvim-tree').setup({
+  hijack_cursor = false,
+  view = {
+    side = 'right',
+  },
+  on_attach = function(bufnr)
+    local bufmap = function(lhs, rhs, desc)
+      vim.keymap.set('n', lhs, rhs, {buffer = bufnr, desc = desc})
+    end
+
+    local api = require('nvim-tree.api')
+
+    bufmap('gh', api.tree.toggle_hidden_filter, 'Toggle hidden files')
+  end
+})
+
+vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<cr>')
 
 -- User commands
 vim.api.nvim_create_user_command('ReloadConfig', 'source $MYVIMRC', {})
