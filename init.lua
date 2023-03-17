@@ -8,6 +8,7 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.showmode = false
+vim.opt.updatetime = 750
 
 -- Keybindings
 vim.keymap.set('i', 'jk', '<Esc>')
@@ -48,16 +49,28 @@ lazy.path = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 lazy.opts = {}
 
 lazy.setup({
-  {'folke/tokyonight.nvim'},
+  {'joshdick/onedark.vim'},
   {'nvim-lualine/lualine.nvim'},
+  {'kyazdani42/nvim-web-devicons'},
 })
 
 -- Colorscheme
 vim.opt.termguicolors = true
-vim.cmd.colorscheme('tokyonight')
+vim.cmd.colorscheme('onedark')
 
 -- Lualine
-require('lualine').setup()
+require('lualine').setup({
+  options = {
+    theme = 'onedark',
+    icons_enabled = true,
+    component_separators = '|',
+    section_separators = '',
+    disabled_filetypes = {
+      statusline = {'NvimTree'}
+    }
+  }
+})
 
 -- User commands
 vim.api.nvim_create_user_command('ReloadConfig', 'source $MYVIMRC', {})
+
