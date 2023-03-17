@@ -56,6 +56,7 @@ lazy.setup({
   {'nvim-treesitter/nvim-treesitter'},
   {'numToStr/Comment.nvim'},
   {'lewis6991/gitsigns.nvim'},
+  {'chentoast/marks.nvim'},
 })
 
 -- Colorscheme
@@ -102,6 +103,9 @@ require('Comment').setup({})
 
 -- Git Signs
 require('gitsigns').setup({})
+
+-- Marks
+require('marks').setup({})
 
 -- User commands
 vim.api.nvim_create_user_command('ReloadConfig', 'source $MYVIMRC', {})
