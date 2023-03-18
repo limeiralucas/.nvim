@@ -51,7 +51,12 @@ lazy.opts = {}
 lazy.setup({
   {'joshdick/onedark.vim'},
   {'nvim-lualine/lualine.nvim'},
-  {'kyazdani42/nvim-web-devicons'},
+  {
+    'kyazdani42/nvim-web-devicons',
+    dependencies = {
+      'lambdalisue/glyph-palette.vim'
+    }
+  },
   {'lukas-reineke/indent-blankline.nvim'},
   {'nvim-treesitter/nvim-treesitter'},
   {'numToStr/Comment.nvim'},
@@ -143,7 +148,7 @@ local fern_group = vim.api.nvim_create_augroup('ferngroup', {clear = true})
 vim.api.nvim_create_autocmd("FileType", {
   group = fern_group,
   pattern = "fern",
-  command = "setlocal nornu | setlocal nonu"
+  command = "setlocal nornu | setlocal nonu | call glyph_palette#apply()"
 })
 
 -- User commands
