@@ -61,7 +61,10 @@ lazy.setup({
   {
     'lambdalisue/fern.vim',
     cmd = 'Fern',
-    dependencies = {'TheLeoP/fern-renderer-web-devicons.nvim'}
+    dependencies = {
+      'TheLeoP/fern-renderer-web-devicons.nvim',
+      'andykog/fern-highlight.vim'
+    }
   },
 })
 
