@@ -28,19 +28,43 @@ lazy.opts = {}
 
 lazy.setup({
   {'joshdick/onedark.vim'},
-  {'nvim-lualine/lualine.nvim'},
+  {
+    'nvim-lualine/lualine.nvim',
+    event = "BufEnter",
+    config = function()
+      require('plugin.lualine')
+    end
+  },
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    event = "BufEnter",
+    config = function()
+      require('plugin.indent_blankline')
+    end
+  },
+  {
+    'nvim-treesitter/nvim-treesitter',
+    event = "BufEnter",
+    config = function()
+      require('plugin.treesitter')
+    end
+  },
+  {
+    'akinsho/bufferline.nvim',
+    event = "BufEnter",
+    config = function()
+      require('plugin.bufferline')
+    end
+  },
   {
     'kyazdani42/nvim-web-devicons',
     dependencies = {
       'lambdalisue/glyph-palette.vim'
     }
   },
-  {'lukas-reineke/indent-blankline.nvim'},
-  {'nvim-treesitter/nvim-treesitter'},
   {'numToStr/Comment.nvim'},
   {'lewis6991/gitsigns.nvim'},
   {'chentoast/marks.nvim'},
-  {'akinsho/bufferline.nvim'},
   {
     'lambdalisue/fern.vim',
     cmd = 'Fern',

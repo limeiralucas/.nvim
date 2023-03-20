@@ -1,43 +1,8 @@
 require('config')
 require('keymap')
 
-require('plugins')
+require('plugin')
 require('colorscheme')
-
--- Lualine
-require('lualine').setup({
-  options = {
-    theme = 'onedark',
-    icons_enabled = true,
-    component_separators = '|',
-    section_separators = '',
-    disabled_filetypes = {
-      statusline = {'fern'}
-    }
-  }
-})
-
--- Indent blankline
-require('indent_blankline').setup({
-  show_trailing_blankline_indent = true,
-  show_first_indent_level = false,
-  use_treesitter = true,
-  show_current_context = false
-})
-
--- Treesitter
-require('nvim-treesitter.configs').setup({
-  highlight = {
-    enable = true,
-  },
-  ensure_installed = {
-    'python',
-    'javascript',
-    'typescript',
-    'json',
-    'lua',
-  },
-})
 
 -- Comment
 require('Comment').setup({})
@@ -47,25 +12,6 @@ require('gitsigns').setup({})
 
 -- Marks
 require('marks').setup({})
-
--- Bufferline
-require('bufferline').setup({
-  options = {
-    mode = 'buffers',
-    offsets = {
-      {filetype = 'fern'}
-    },
-  },
-  highlights = {
-    buffer_selected = {
-      italic = false
-    },
-    indicator_selected = {
-      fg = {attribute = 'fg', highlight = 'Function'},
-      italic = false
-    }
-  }
-})
 
 -- Fern
 vim.keymap.set('n', '<leader>e', '<cmd>Fern . -drawer -toggle -right<cr>')
