@@ -4,19 +4,6 @@ require('keymap')
 require('plugin')
 require('colorscheme')
 
--- Comment
-require('Comment').setup({})
-
--- Git Signs
-require('gitsigns').setup({})
-
--- Marks
-require('marks').setup({})
-
--- Fern
-vim.keymap.set('n', '<leader>e', '<cmd>Fern . -drawer -toggle -right<cr>')
-vim.g['fern#renderer'] = 'nvim-web-devicons'
-
 local fern_group = vim.api.nvim_create_augroup('ferngroup', {clear = true})
 vim.api.nvim_create_autocmd("FileType", {
   group = fern_group,

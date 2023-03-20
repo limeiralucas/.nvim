@@ -62,15 +62,36 @@ lazy.setup({
       'lambdalisue/glyph-palette.vim'
     }
   },
-  {'numToStr/Comment.nvim'},
-  {'lewis6991/gitsigns.nvim'},
-  {'chentoast/marks.nvim'},
+  {
+    'numToStr/Comment.nvim',
+    event = "BufEnter",
+    config = function()
+      require('Comment').setup()
+    end
+  },
+  {
+    'lewis6991/gitsigns.nvim',
+    event = 'BufEnter',
+    config = function()
+      require('gitsigns').setup()
+    end
+  },
+  {
+    'chentoast/marks.nvim',
+    event = 'BufEnter',
+    config = function()
+      require('marks').setup()
+    end
+  },
   {
     'lambdalisue/fern.vim',
     cmd = 'Fern',
     dependencies = {
       'TheLeoP/fern-renderer-web-devicons.nvim',
       'andykog/fern-highlight.vim'
-    }
+    },
+    config = function()
+      vim.g['fern#renderer'] = 'nvim-web-devicons'
+    end
   },
 })
