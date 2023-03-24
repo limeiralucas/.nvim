@@ -94,4 +94,37 @@ lazy.setup({
       vim.g['fern#renderer'] = 'nvim-web-devicons'
     end
   },
+  {
+    'neovim/nvim-lspconfig',
+    event = 'BufRead',
+    dependencies = {'hrsh7th/nvim-cmp'},
+    config = function()
+      require('plugin.lsp')
+    end
+  },
+  {
+    'hrsh7th/nvim-cmp',
+    event = 'InsertEnter',
+    dependencies = {
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-nvim-lsp',
+      'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip',
+    },
+    config = function()
+      require('plugin.cmp')
+    end
+  },
+  {
+    'L3MON4D3/LuaSnip',
+    event = 'InsertEnter',
+    build = 'make install_jsregexp',
+    dependencies = {
+      'rafamadriz/friendly-snippets'
+    },
+    config = function()
+      require('luasnip.loaders.from_vscode').lazy_load()
+    end
+  }
 })

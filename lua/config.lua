@@ -9,5 +9,6 @@ vim.opt.expandtab = true
 vim.opt.showmode = false
 vim.opt.updatetime = 750
 vim.opt.termguicolors = true
+vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 
 vim.g.mapleader = ' '

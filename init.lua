@@ -2,6 +2,7 @@ require('config')
 require('keymap')
 require('cmd')
 
-require('plugin')
-require('colorscheme')
-
+if not vim.g.vscode then
+  require('plugin')
+  require('colorscheme')
+end
