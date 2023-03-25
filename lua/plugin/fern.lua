@@ -18,7 +18,7 @@ vim.api.nvim_create_autocmd('FileType', {
       'nmap <buffer><expr>'..
       ' <Plug>(fern-my-open-expand-or-collapse)'..
       ' fern#smart#leaf('..
-      ' "\\<Plug>(fern-action-open)",'..
+      ' "\\<Plug>(fern-action-open:select)",'..
       ' "\\<Plug>(fern-action-expand)",'..
       ' "\\<Plug>(fern-action-collapse)",'..
       ')'
