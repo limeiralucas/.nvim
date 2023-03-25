@@ -15,6 +15,7 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = 'fern',
   callback = function()
     vim.keymap.set('n', 'o', '<Plug>(fern-action-open:edit)', {buffer = true})
+    vim.keymap.set('n', 'v', '<Plug>(fern-action-open:vsplit)', {buffer = true})
     vim.keymap.set('n', 'n', '<Plug>(fern-action-new-path)', {buffer = true})
     vim.keymap.set('n', 'h', '<Plug>(fern-action-hidden:toggle)', {buffer = true})
     vim.keymap.set('n', 'd', '<Plug>(fern-action-remove)', {buffer = true})
