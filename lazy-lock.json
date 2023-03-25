@@ -7,6 +7,7 @@
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
   "cmp_luasnip": { "branch": "master", "commit": "18095520391186d634a0045dacaa346291096566" },
   "fern-highlight.vim": { "branch": "main", "commit": "1f63fbf388ead8a2ee568871b566034eec344bf6" },
+  "fern-hijack.vim": { "branch": "master", "commit": "5989a1ac6ddffd0fe49631826b6743b129992b32" },
   "fern-renderer-web-devicons.nvim": { "branch": "master", "commit": "1d0a612a3ca56a49ac7b7fa58dbe6d132a2735e2" },
   "fern.vim": { "branch": "main", "commit": "dae5eb2debe023fce0e3dfafbf879bd89946d6d0" },
   "friendly-snippets": { "branch": "main", "commit": "25ddcd96540a2ce41d714bd7fea2e7f75fea8ead" },

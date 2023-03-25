@@ -85,14 +85,13 @@ lazy.setup({
   },
   {
     'lambdalisue/fern.vim',
-    cmd = 'Fern',
     dependencies = {
       'TheLeoP/fern-renderer-web-devicons.nvim',
-      'andykog/fern-highlight.vim'
+      'andykog/fern-highlight.vim',
+      'lambdalisue/fern-hijack.vim',
     },
     config = function()
-      vim.g['fern#renderer'] = 'nvim-web-devicons'
-      vim.g['fern#hide_cursor'] = 1
+      require('plugin.fern')
     end
   },
   {
