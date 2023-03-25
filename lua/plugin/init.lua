@@ -97,7 +97,9 @@ lazy.setup({
   {
     'neovim/nvim-lspconfig',
     event = 'BufRead',
-    dependencies = {'hrsh7th/nvim-cmp'},
+    dependencies = {
+      'hrsh7th/nvim-cmp',
+    },
     config = function()
       require('plugin.lsp')
     end
@@ -125,6 +127,15 @@ lazy.setup({
     },
     config = function()
       require('luasnip.loaders.from_vscode').lazy_load()
+    end
+  },
+  {
+    'williamboman/mason.nvim',
+    dependencies = {
+      'williamboman/mason-lspconfig.nvim',
+    },
+    config = function()
+      require('plugin.mason')
     end
   }
 })
