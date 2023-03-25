@@ -92,6 +92,7 @@ lazy.setup({
     },
     config = function()
       vim.g['fern#renderer'] = 'nvim-web-devicons'
+      vim.g['fern#hide_cursor'] = 1
     end
   },
   {
