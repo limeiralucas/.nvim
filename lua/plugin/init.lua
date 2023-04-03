@@ -137,5 +137,9 @@ lazy.setup({
     config = function()
       require('plugin.mason')
     end
+  },
+  {
+      "aserowy/tmux.nvim",
+      config = function() return require("tmux").setup() end
   }
 })
