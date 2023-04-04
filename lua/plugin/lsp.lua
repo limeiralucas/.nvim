@@ -17,6 +17,8 @@ lspconfig.lua_ls.setup({
   },
 })
 
+lspconfig.pyright.setup({})
+
 vim.diagnostic.config({
   virtual_text = false,
   severity_sort = true,
@@ -34,3 +36,52 @@ vim.api.nvim_create_autocmd(
     end
   }
 )
+
+function SetPython()
+  local results = {}
+  local cachePath = "~/Library/Caches/"
+
+  if vim.loop.os_uname().sysname == "Linux" then
+    cachePath = "~/.cache/"
+  end
+
+  local poetryPath = cachePath.."/pypoetry/virtualenvs"
+
+  vim.fn.jobstart(
+    'ls --color=never -ad '..poetryPath..'/*/',
+    {
+      on_stdout = function(_, data, _)
+        for _, line in ipairs(data) do
+          if (line ~= nil and line ~= "") then
+            table.insert(results, line)
+          end
+        end
+      end,
+      on_exit = function()
+        vim.ui.select(
+          results,
+          {
+            prompt = "Choose env:",
+            format_item = function(item)
+              return item
+            end,
+          },
+          function (envPath, _)
+            if envPath then
+              local pythonPath = envPath.."/bin/python"
+
+              lspconfig.pyright.setup({
+                before_init = function(_, config)
+                  config.settings.python.pythonPath = pythonPath
+                end
+              })
+            end
+          end
+        )
+      end
+    }
+  )
+end
+
+vim.api.nvim_create_user_command("SetPython", SetPython, { desc = "Select Python interpreter" })
+
