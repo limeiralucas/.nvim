@@ -2,6 +2,9 @@
 -- Reload Config
 vim.api.nvim_create_user_command('ReloadConfig', 'source $MYVIMRC', {})
 
+-- Set Directory
+vim.api.nvim_create_user_command('SetDir', 'cd %:h', {})
+
 -- Auto commands
 -- Fern
 local fern_group = vim.api.nvim_create_augroup('ferngroup', {clear = true})
@@ -11,20 +14,31 @@ vim.api.nvim_create_autocmd("FileType", {
   command = "setlocal nornu | setlocal nonu | call glyph_palette#apply()"
 })
 
+local general = vim.api.nvim_create_augroup('general', {clear = true})
+
 -- Smart Number
-local number_toggle_group = vim.api.nvim_create_augroup('numbertoggle', {clear = true})
 vim.api.nvim_create_autocmd(
   {'BufEnter', 'FocusGained', 'InsertLeave', 'WinEnter'},
   {
-    group = number_toggle_group,
+    group = general,
     command = 'if &ft != "fern" | set rnu | endif'
   }
 )
 vim.api.nvim_create_autocmd(
   {'BufLeave', 'FocusLost', 'InsertEnter', 'WinLeave'},
   {
-    group = number_toggle_group,
+    group = general,
     command = 'if &ft != "fern" | set nornu | endif'
   }
 )
 
+-- Disable newline comment
+vim.api.nvim_create_autocmd(
+  "BufEnter",
+  {
+    callback = function()
+      vim.opt.formatoptions:remove { "c", "r", "o" }
+    end,
+    group = general,
+  }
+)
