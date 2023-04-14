@@ -1,17 +1,17 @@
-local cmp = require('cmp')
-local luasnip = require('luasnip')
+local status, cmp = pcall(require, 'cmp')
+if (not status) then return end
 
 local select_opts = {behavior = cmp.SelectBehavior.Select}
 
 cmp.setup({
   snippet = {
     expand = function(args)
-      luasnip.lsp_expand(args.body)
+      require('luasnip').lsp_expand(args.body)
     end
   },
   sources = {
     {name = 'path'},
-    {name = 'nvim_lsp', keyword_length = 1},
+    {name = 'nvim_lsp', keyword_length = 3},
     {name = 'buffer', keyword_length = 3},
     {name = 'luasnip', keyword_length = 2},
   },
@@ -64,3 +64,8 @@ cmp.setup({
     end, {'i', 's'}),
   },
 })
+
+vim.cmd [[
+  set completeopt=menuone,noinsert,noselect
+  highlight! default link CmpItemKind CmpItemMenuDefault
+]]

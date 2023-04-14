@@ -1,5 +1,20 @@
-local lspconfig = require('lspconfig')
+local status, lspconfig = pcall(require, 'lspconfig')
+if (not status) then return end
+
 local lsp_defaults = lspconfig.util.default_config
+
+local on_attach = function(client, bufnr)
+  -- format on save
+  if client.supports_method('textDocument/formatting') then
+    vim.api.nvim_create_autocmd('BufWritePre', {
+      group = vim.api.nvim_create_augroup('LspFormat', { clear = true }),
+      buffer = bufnr,
+      callback = function ()
+        vim.lsp.buf.format()
+      end
+    })
+  end
+end
 
 lsp_defaults.capabilities = vim.tbl_deep_extend(
   'force',
@@ -17,7 +32,14 @@ lspconfig.lua_ls.setup({
   },
 })
 
-lspconfig.pyright.setup({})
+lspconfig.pyright.setup({
+  on_attach = on_attach,
+})
+
+lspconfig.tsserver.setup({
+  on_attach = on_attach,
+  filetypes = { 'typescript', 'typescriptreact', 'typescript.tsx' },
+})
 
 vim.diagnostic.config({
   virtual_text = false,
